@@ -55,4 +55,14 @@ $(document).ready(function(){
 
 
 
+    // onclick function => remove all tasks from the local storage :)
+    const btnClear = $('.clear-tasks');
+        $(btnClear).click(function(){
+        if(confirm('آیا مطمئن هستید که میخواهید تمام تسکها پاک شود؟')){
+            $('.list-group').empty();
+           console.log(tasks)
+           localStorage.removeItem('tasks')
+        }
+        });
+
 });

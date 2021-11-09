@@ -50,8 +50,8 @@ $(document).ready(function(){
 };   
 getTask();
 
-$('#task-form').on('submit', function(event){
-    event.preventDefault();
+$('#task-form').on('submit', function(){
+    // event.preventDefault();
     inputTask = $('#task').val().trim();
 
     if($.trim(inputTask)==''){
@@ -62,12 +62,13 @@ $('#task-form').on('submit', function(event){
        const tagI = $("<i class='fas fa-times text-danger mr-auto delete-item'></i>");
        
        $('.list-group').append($(tagLi).append(inputTask).append(tagI));
+       storeTaskInLocalStorage(inputTask)
     };
-    storeTaskInLocalStorage(inputTask)
 })
 
 $('.list-group').click(function(e){
-    if (e.target.parentElement.classList.contains('list-group-item')) {
+    if ($('.list-group').children('list-group-item')) {
+        
         e.target.parentElement.remove();
         removeTaskFromLocalStorage(e.target.parentElement);};
 })

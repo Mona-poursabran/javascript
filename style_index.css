@@ -1,0 +1,152 @@
+@font-face {
+    font-family: 'Vazir';
+    src: url('fonts/Vazir.eot');
+    src: url('fonts/Vazir.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Vazir.woff2') format('woff2'),
+        url('fonts/Vazir.woff') format('woff'),
+        url('fonts/Vazir.ttf') format('truetype'),
+}
+body{
+    font-family: Vazir, Arial, Helvetica, sans-serif;
+    /* font-size: 21px; */
+    line-height: 25px;
+}
+
+
+
+/* HEADER */
+.fix-top{
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+
+.hoover:hover:not(.active){
+    background-color: rgb(255, 126, 5);
+    border:none;
+    border-radius: 4px;
+  }
+
+/* -------------------------------- */
+
+
+/* FIRST SECTION */
+.bg_image{
+    background-image: url('showcase.jpg');
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 55px;
+}
+
+.item{
+    margin-top: 60px;
+    font-size: 21.5px;
+    padding: 0px 13px;
+}
+
+.btn_on_img{
+    background-color: rgb(255, 126, 5) ;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    padding:9px 24px;
+}
+/* -------------------------------- */
+
+/* SECOND SECTION */
+
+.circle-icon {
+    background: #ff8944;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    vertical-align: middle;
+    padding: 20px;
+}
+/* -------------------------------- */
+
+
+/* THIRD SECTION */
+
+
+.p-manual{
+    padding-right: 20px;
+}
+
+.font-p{
+    font-size: 15.5px;
+}
+
+.p-bottom{
+    padding-bottom: 40px;
+}
+
+.bg_image_1{
+    background-image: url('section2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* -------------------------------- */
+
+
+/* FORM */
+
+.form{
+    direction: rtl;
+    margin: 10px auto;
+    padding: 24px;
+    width: 50%;
+}
+
+
+.btn_form{
+   
+    color: white;
+    background-color: rgb(255, 126, 5);
+    /* padding: 3px 25px; */
+}
+
+/* -------------------------------- */
+
+
+/* FOOTER */
+.main_footer{
+    align-items: center;
+    background-color: #333;
+    color: white;
+    display: flex;
+    flex-flow: wrap row;
+    /* justify-content: space-evenly; */
+    justify-content: space-around;
+    height: 70px;
+    font-size: 12px;
+  }
+  .icon img{
+    /* display: flex; */
+    font-size: 40px;
+    width: 27px;
+    /* background-color: white; */
+  }
+/* -------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+

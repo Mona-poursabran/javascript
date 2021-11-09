@@ -1,22 +1,42 @@
 $(document).ready(function(){
 
+    function removeTaskFromLocalStorage(taskItem) {
+        let tasks;
+        console.log(taskItem)
+        if (localStorage.getItem('tasks') === null) {
+            tasks = [];
+        } else {
+            tasks = JSON.parse(localStorage.getItem('tasks'));
+        }
+    
+        tasks.forEach(function (task, index) {
+            if (taskItem.textContent === task) {
+                tasks.splice(index, 1);
+            }
+        });
+    
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+
     // show list tasks which have been entered before:
     tasks = localStorage.tasks 
-    if(tasks){
+    if(localStorage.getItem('tasks') !== null){
         tasks = JSON.parse(tasks)
-        $.each(tasks, function(i, e){
+        $.each(tasks, function(i){
             let tagLi = $("<li class='list-group-item d-flex justify-content-between'></li>");
             let tagI = $("<i class='fas fa-times text-danger mr-auto delete-item'></i>");
             console.log(i," ", tasks[i]);
             $('.list-group').append($(tagLi).append(tasks[i]).append(tagI));     
         });
+        
+        $('.list-group').click(function removeTask(e) {
+            if (e.target.parentElement.classList.contains('list-group-item')) {
+                if (confirm('Are You Sure?')) {
+                    e.target.parentElement.remove();
+                    removeTaskFromLocalStorage(e.target.parentElement); };};});
+           };
 
-        iElement = $(".delete-item");  // TODO  i couldn't delete a task from the local storage :(
-            if(iElement){
-                $(iElement).click(function(){
-                    $(this).parent().remove();
-                    })};
-    };
 
   // onclick function=> Add tasks
     $('#task-form').on('submit', function(event){
@@ -31,14 +51,16 @@ $(document).ready(function(){
            const tagI = $("<i class='fas fa-times text-danger mr-auto delete-item'></i>");
            
            $('.list-group').append($(tagLi).append(inputTask).append(tagI));
-           alert('تسک ذخیره شد  :)')
         };
-
-        iElement = $(".delete-item");
-        $(iElement).click(function(){
-           $(this).parent().remove();
-        })
-
+  
+        $('.list-group').click(function removeTask(e) {
+            if (e.target.parentElement.classList.contains('list-group-item')) {
+                    e.target.parentElement.remove();
+                    removeTaskFromLocalStorage(e.target.parentElement);};
+          });
+    
+        
+        //save tasks in localStorage:
         let tasks ;
         tasks = []
         if(localStorage.getItem('tasks') === null){
@@ -51,9 +73,6 @@ $(document).ready(function(){
         localStorage.setItem('tasks', JSON.stringify(tasks))
         
     });
-
-
-
 
     // onclick function => remove all tasks from the local storage :)
     const btnClear = $('.clear-tasks');
